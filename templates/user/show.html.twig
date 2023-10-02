@@ -36,6 +36,14 @@
                 <td>{{ user.picture }}</td>
             </tr>
             <tr>
+                <th>Secteur</th>
+                <td>{{ user.sector.title }}</td>
+            </tr>
+            <tr>
+                <th>Type de contrat</th>
+                <td>{{ user.contractType.title }}</td>
+            </tr>
+            <tr>
                 <th>Date de sortie</th>
                 <td>{{ user.endDate ? user.endDate|date('Y-m-d') : '' }}</td>
             </tr>

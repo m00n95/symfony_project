@@ -62,7 +62,7 @@ class AppFixtures extends Fixture
         $user = new User();
         $user
         ->setEmail($faker->email())
-        ->setPassword($this->hasher->hashPassword($user, 'test'))
+        ->setPassword($this->hasher->hashPassword($user, 'azerty'))
         ->setFirstname($faker->firstName())
         ->setLastname($faker->lastName())
         ->setPicture($faker->imageUrl())

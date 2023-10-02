@@ -5,14 +5,12 @@
 {% block body %}
     <h1>Gestion des employés</h1>
 
-<div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Email</th>
                 <th>Role(s)</th>
-                <th>Mot de passe</th>
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Photo</th>
@@ -28,7 +26,6 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
                 <td>{{ user.lastname }}</td>
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.picture }}</td>
@@ -47,7 +44,6 @@
         {% endfor %}
         </tbody>
     </table>
-</div>
 
     <a class="btn btn-success mt-3" href="{{ path('app_user_new') }}">Créer un nouvel employé</a>
 {% endblock %}
