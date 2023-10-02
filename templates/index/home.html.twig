@@ -1,10 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Les employés{% endblock %}
 
 {% block body %}
 <div class="container mt-4">
     <h1>Liste des employés</h1>
-    
+
+    <ul>
+        {% for user in users %}
+            <li>{{user.id}} : {{user.firstname}} {{user.lastname}} - <a href="{{ path("app_employee", {'id': user.id}) }}">Voir plus</a></li>
+        {% endfor %}
+    </ul>
+
 </div>
 {% endblock %}

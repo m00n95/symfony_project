@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Employé{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+
+    <h1>{{user.firstname}} {{user.lastname}}</h1>
+    <img style="width:150px;" src="{{user.picture}}" alt="photo de l'employé">
+    <h4>Adresse email : {{user.email}}</h4>
+    <h4>Secteur : {{user.sector.title}}</h4>
+    <h4>Type de contrat : {{user.contractType.title}}</h4>
+    <h4>Date de fin : {{user.endDate|date("d-m-Y")}}</h4>
+
+</div>
+{% endblock %}

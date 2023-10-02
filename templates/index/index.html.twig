@@ -6,8 +6,12 @@
 <div class="container text-center mt-4">
     <h1>Bienvenue !</h1>
 
-    <h2>Veuillez vous connecter pour accéder au site.</h2>
-
-    <a class="btn btn-secondary text-light" href="{{ path("app_login") }}">Connexion</a>
+    {% if app.user is null %}
+        <h2>Veuillez vous connecter pour accéder au site.</h2>
+        <a class="btn btn-secondary text-light" href="{{ path("app_login") }}">Connexion</a>
+    {% else %}
+        <a class="btn btn-secondary text-light" href="{{ path("app_home") }}">Accéder au site</a>
+    {% endif %}
+    
 </div>
 {% endblock %}
