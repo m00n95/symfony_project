@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des employés{% endblock %}
+
+{% block body %}
+    <h1>Gestion des employés</h1>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Role(s)</th>
+                <th>Mot de passe</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Photo</th>
+                <th>Secteur</th>
+                <th>Type de contrat</th>
+                <th>Date de sortie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.picture }}</td>
+                <td>{{ user.sector.title }}</td>
+                <td>{{ user.contractType.title }}</td>
+                <td>{{ user.endDate ? user.endDate|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('app_user_show', {'id': user.id}) }}">Voir</a>
+                    <a class="btn btn-warning mt-2" href="{{ path('app_user_edit', {'id': user.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+    <a class="btn btn-success mt-3" href="{{ path('app_user_new') }}">Créer un nouvel employé</a>
+{% endblock %}

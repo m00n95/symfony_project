@@ -1,4 +1,4 @@
-<div class="bg-dark text-light p-4 d-flex justify-content-evenly col-{{ col|default(12) }}">
+<div class="bg-dark text-light p-4 d-flex justify-content-evenly  }}">
     <a class="btn btn-secondary text-light" href="{{ path("app_index") }}">Accueil</a>
     {% if app.user is null %}
     <a class="btn btn-secondary text-light" href="{{ path("app_login") }}">Connexion</a>
@@ -7,7 +7,8 @@
     <a class="btn btn-secondary text-light" href="{{ path("app_home") }}">Les employés</a>
     {% endif %}
         {% if is_granted("ROLE_ADMIN") %}
-            <a class="btn btn-secondary text-light" href="{{ path("app_user") }}">Admin</a>
+            <a class="btn btn-secondary text-light" href="{{ path("app_user_index") }}">Admin</a>
+            <a class="btn btn-secondary text-light" href="{{ path("app_user_new") }}">Ajouter un employé</a>
         {% endif %}
     <a class="btn btn-secondary text-light" href="{{ path("app_logout") }}"> {{ "Déconnexion de " ~ app.user.userIdentifier }}</a>
     {% endif %}
